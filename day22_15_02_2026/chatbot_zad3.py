@@ -29,7 +29,7 @@ chatbot = pipeline(
 
 prompt = "<|User|>Cześć, jak mogę Ci pomóc?<|assistant|>"
 response = chatbot(prompt,
-                   max_new_tokens=160,
+                   max_new_tokens=320,
                    temperature=0.7,
                    top_p=0.9)
 
