@@ -1,4 +1,5 @@
 import xlwt
+from openpyxl.styles.builtins import styles
 from xlwt.Utils import cell_to_rowcol2
 import datetime as dt
 
@@ -18,4 +19,18 @@ formatting = xlwt.easyxf(
     "top thin, bottom thin;"
     "pattern: pattern solid, fore_color yellow;"
 )
+
+sheet.write(r=2, c=0, label="Dane", style=formatting)
+
+number_format = xlwt.easyxf(num_format_str="0.00")
+sheet.write(3, 0, 3.333333, number_format)
+
+date_format = xlwt.easyxf(num_format_str="yyyy/mm/dd")
+sheet.write(4, 0, dt.datetime(2012, 2, 3), date_format)
+
+sheet.write(5, 0, xlwt.Formula("SUM(A4, 2)"))
+
+# dodanie obrazka
+# sheet.insert_bitmap('images/pict.bmp', 0, 2)
+
 book.save("dane.xls")
