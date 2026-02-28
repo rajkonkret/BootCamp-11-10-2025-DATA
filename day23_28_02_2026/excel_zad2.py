@@ -35,12 +35,15 @@ sheet.write("A4", dt.date(2016, 10, 13), date_format)
 
 # formatowanie wartości numerycznych
 # number_format = book.add_format({"num_format": "0.00"})
-number_format = book.add_format({"num_format": "[$-409]0.00"}) # 409 - lokalizacja USA
+number_format = book.add_format({"num_format": "[$-409]0.00"})  # 409 - lokalizacja USA
 
 sheet.write("A5", 3.333333, number_format)
 
 # formuły
 sheet.write("A6", "=SUM(A4, 2)")
+
+# dodanie obrazka
+sheet.insert_image(0, 5, 'django_komendy.png', {"x_scale": 0.5, "y_scale": 0.5})
 
 
 book.close()  # tworzy plik na dysku
