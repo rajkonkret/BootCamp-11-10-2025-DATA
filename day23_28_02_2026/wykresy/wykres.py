@@ -12,4 +12,13 @@ plt.xlabel("Oś X")
 plt.ylabel("Oś Y")
 
 plt.title("Wykres liniowy")
-plt.show()
+# plt.show() # wyswietla wykresu
+
+# plt.savefig("wykres.png")
+# plt.close()
+
+# plt.savefig("wykres2.png", dpi=300)  # wysoka jakość
+# plt.close()
+
+plt.savefig("wykres3.png", dpi=300, bbox_inches='tight')  # wysoka jakość
+plt.close()
