@@ -2,6 +2,9 @@
 # xlrd, xlwt
 import sys
 
+# from xlwt.Utils import cell_to_rowcol
+from xlwt.Utils import cell_to_rowcol2  # dla python 3.13
+
 print(sys.version)  # 3.13.7 (main, Aug 14 2025, 11:12:11) [Clang 17.0.0 (clang-1700.0.13.3)]
 print(sys.version_info)
 # sys.version_info(major=3, minor=13, micro=7, releaselevel='final', serial=0)
@@ -21,3 +24,10 @@ print(sheet.name)  # Arkusz1
 
 sheet = person.sheet_by_name("Arkusz1")
 print(sheet.name)  # Arkusz1
+
+print(sheet.nrows)  # 2 wiersze
+print(sheet.ncols)  # 3 kolumny
+
+print(sheet.cell(1, 0).value)  # odczyt komórki: Radek
+
+print(sheet.cell(*cell_to_rowcol2("B1")).value)  # nazwisko
