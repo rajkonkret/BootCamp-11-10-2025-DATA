@@ -57,3 +57,9 @@ arr_bool = np.array((1, 0, 3))
 new_arr_bool = arr_bool.astype(bool)
 print(new_arr_bool)  # [ True False  True]
 print(new_arr_bool.dtype)  # bool
+
+arr_float_2 = np.array([1.2, 2.2, 3.3, 4.4, 5.5])
+print(arr_float_2)
+print(arr_float_2.dtype)
+# [1.2 2.2 3.3 4.4 5.5]
+# float64
