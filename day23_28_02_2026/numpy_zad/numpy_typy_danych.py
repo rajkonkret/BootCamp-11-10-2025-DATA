@@ -63,3 +63,51 @@ print(arr_float_2)
 print(arr_float_2.dtype)
 # [1.2 2.2 3.3 4.4 5.5]
 # float64
+
+print("Konwersja na int32:", arr_float_2.astype("int32"))
+print("Konwersja na int32:", arr_float_2.astype("int32").dtype)
+# Konwersja na int32: [1 2 3 4 5]
+# Konwersja na int32: int32
+
+# int16, bool, U6, uint8, float16
+
+print("Konwersja na int16:", arr_float_2.astype("int16"))
+print("Konwersja na int16:", arr_float_2.astype("int16").dtype)
+# Konwersja na int32: [1 2 3 4 5]
+# Konwersja na int32: int16
+
+print("Konwersja na bool:", arr_float_2.astype("bool"))
+print("Konwersja na bool:", arr_float_2.astype("bool").dtype)
+# Konwersja na bool: [ True  True  True  True  True]
+# Konwersja na bool: bool
+
+print("Konwersja na U6:", arr_float_2.astype("U6"))
+print("Konwersja na U6:", arr_float_2.astype("U6").dtype)
+# Konwersja na U6: ['1.2' '2.2' '3.3' '4.4' '5.5']
+# Konwersja na U6: <U6
+
+print("Konwersja na uint8:", arr_float_2.astype("uint8"))
+print("Konwersja na uint8:", arr_float_2.astype("uint8").dtype)
+# Konwersja na uint8: [1 2 3 4 5]
+# Konwersja na uint8: uint8
+
+print("Konwersja na float16:", arr_float_2.astype("float16"))
+print("Konwersja na float16:", arr_float_2.astype("float16").dtype)
+# Konwersja na float16: [1.2 2.2 3.3 4.4 5.5]
+# Konwersja na float16: float16
+
+# uint8 -> 255
+# 255 + 255 = 510
+
+# # numpy typy danych
+# i - integer
+# b - boolean
+# u - unsigned integer
+# f - float
+# c - complex float
+# m - timedelta
+# M - datetime
+# O - object
+# S - string
+# U - unicode string
+# V - fixed chunk of memory for other type ( void )
