@@ -13,3 +13,10 @@ data = [
     ["2024-01-03", "Odzież", "Kurtka", 1500],
     ["2024-01-04", "Elektronika", "Laptop", 1500],
 ]
+
+for row in data:
+    ws.append(row)
+
+pivot_ws = wb.create_sheet("Tabela Przestawna")
+
+wb.save("tabela_przestawna.xlsx")
