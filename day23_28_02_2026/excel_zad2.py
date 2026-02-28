@@ -45,5 +45,25 @@ sheet.write("A6", "=SUM(A4, 2)")
 # dodanie obrazka
 sheet.insert_image(0, 5, 'django_komendy.png', {"x_scale": 0.5, "y_scale": 0.5})
 
+# wykresy
+categories = ['Styczeń', "Luty"]
+values = [100, 150]
+sheet.write_row("B20", categories)
+sheet.write_row("B21", values)
+
+chart = book.add_chart({"type": "column"})
+chart.set_title({"name": "Sprzedaż"})
+chart.add_series(
+    {
+        "name": "=Arkusz1!A30",
+        "categories": "=Arkusz1!B20:C20",
+        "values": "=Arkusz1!B21:C21"
+    }
+)
+
+chart.set_x_axis({"name": "OS X"})
+chart.set_y_axis({"name": "OS Y"})
+
+sheet.insert_chart("A15", chart)
 
 book.close()  # tworzy plik na dysku
