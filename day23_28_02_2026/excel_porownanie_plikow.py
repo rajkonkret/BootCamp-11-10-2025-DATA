@@ -8,3 +8,9 @@ ws2 = wb2.active
 
 print(ws1)
 print(ws2)
+
+if ws1['A1'].value == ws2['A1'].value:
+    print("Wartości A1 są identyczne")
+else:
+    print(f"Różnica: plik1={ws1['A1'].value}, plik2={ws2["A1"].value}")
+# Różnica: plik1=Data, plik2=Rank
