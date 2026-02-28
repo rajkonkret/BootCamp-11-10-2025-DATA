@@ -9,3 +9,11 @@ data = np.array(
         [70, 75, 80],
     ]
 )
+
+# wymiar
+# i kilka wartosci wyciągnąć
+print("Wymiar:", data.ndim)  # Wymiar: 2
+
+print(data[0])  # [10 15 20]
+print(data[1, 2])  # 35
+print(data[3, 1])  # 60
