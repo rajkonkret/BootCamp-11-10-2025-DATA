@@ -35,3 +35,39 @@ print(arr_10)
 # 4 element, wiersz 2
 print("Czwarty element, wiersz 2:", arr_10[1, 3])
 # Czwarty element, wiersz 2: 9
+
+print(25 * "-")
+arr_12_3d = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+print(arr_12_3d)
+# -------------------------
+# [[[ 1  2  3]
+#   [ 4  5  6]]
+#
+#  [[ 7  8  9]
+#   [10 11 12]]]
+
+print(10 * "-")
+print(arr_12_3d[0])
+# ----------
+# [[1 2 3]
+#  [4 5 6]]
+
+print(10 * "-")
+print(arr_12_3d[0, 1])
+# ----------
+# [4 5 6]
+
+print(10 * "-")
+print(arr_12_3d[0, 1, 2])
+# ----------
+# 6
+
+print(10 * "-")
+# indeksy ujemny
+print(arr_10)
+
+print("Wiersz indeks 1, ostatni element:", arr_10[1, -1])
+# ----------
+# [[ 1  2  3  4  5]
+#  [ 6  7  8  9 10]]
+# Wiersz indeks 1, ostatni element: 10
