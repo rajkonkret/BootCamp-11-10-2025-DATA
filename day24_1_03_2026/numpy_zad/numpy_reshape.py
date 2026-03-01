@@ -41,3 +41,33 @@ print(new_arr)
 #  [[ 7  8  9]
 #   [10 11 12]]]
 print(new_arr.shape)  # (2, 2, 3)
+
+# [1, 2, 3, 4, 5, 6, 7, 8]
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+new_arr = arr.reshape(2, 2, -1)
+print(new_arr)
+# [[[1 2]
+#   [3 4]]
+#
+#  [[5 6]
+#   [7 8]]]
+print(new_arr.shape)  # (2, 2, 2)
+
+arr = np.arange(12)
+print(arr)  # [ 0  1  2  3  4  5  6  7  8  9 10 11]
+new_arr = arr.reshape(-1, 2)
+print(new_arr)
+# [[ 0  1]
+#  [ 2  3]
+#  [ 4  5]
+#  [ 6  7]
+#  [ 8  9]
+#  [10 11]]
+print(new_arr.shape)  # (6, 2)
+
+new_arr = arr.reshape(3, -1)
+print(new_arr)
+# [[ 0  1  2  3]
+#  [ 4  5  6  7]
+#  [ 8  9 10 11]]
+print(new_arr.shape)  # (3, 4)
