@@ -105,3 +105,12 @@ print(lista_slice)
 lista_slice[0] = 99
 print(lista)  # [1, 2, 3, 4, 5]
 print(lista_slice)  # [99, 3]
+
+arr_1d = np.arange(10)
+view_reversed = arr_1d[::-1].view()
+print(arr_1d)  # [0 1 2 3 4 5 6 7 8 9]
+print(view_reversed)  # [9 8 7 6 5 4 3 2 1 0]
+view_reversed[0] = 999
+print(arr_1d)  # [  0   1   2   3   4   5   6   7   8 999]
+print(view_reversed)  # [999   8   7   6   5   4   3   2   1   0]
+print(view_reversed.base is arr_1d)  # True, widok
