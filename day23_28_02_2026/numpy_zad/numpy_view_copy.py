@@ -129,4 +129,13 @@ print(arr_3d[0])
 #  [6 7 8]]
 print(copy.base is arr_3d)  # False, jest to kopia
 
+arr_float = np.array([1.1, 2.2, 3.3, 4.4], dtype="float32")
+print(arr_float.dtype)  # float32
 
+arr_view_as_int = arr_float.astype('int32').view()  # tworzy kopie a nie widok pomimo view()
+print(arr_float)  # [1.1 2.2 3.3 4.4]
+print(arr_view_as_int)  # [1 2 3 4]
+print(arr_view_as_int.dtype)  # int32
+print(arr_float.dtype)  # float32
+
+print(arr_view_as_int.base is arr_float)  # False - kopia
