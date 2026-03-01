@@ -71,3 +71,28 @@ print(new_arr)
 #  [ 4  5  6  7]
 #  [ 8  9 10 11]]
 print(new_arr.shape)  # (3, 4)
+
+new_arr_order_f = arr.reshape((3, 4), order="F")  # w stylu fortrana, kolumnowo
+print(new_arr_order_f)
+# [[ 0  3  6  9]
+#  [ 1  4  7 10]
+#  [ 2  5  8 11]]
+
+new_arr_order_f = arr.reshape((3, 4), order="C")  # w stylu domyślny, wierszowo
+print(new_arr_order_f)
+# [[ 0  1  2  3]
+#  [ 4  5  6  7]
+#  [ 8  9 10 11]]
+
+print(new_arr)
+# [[ 0  1  2  3]
+#  [ 4  5  6  7]
+#  [ 8  9 10 11]]
+print(new_arr.flags)
+#   C_CONTIGUOUS : True
+#   F_CONTIGUOUS : False
+
+#   OWNDATA : False
+#   WRITEABLE : True
+#   ALIGNED : True
+#   WRITEBACKIFCOPY : False
