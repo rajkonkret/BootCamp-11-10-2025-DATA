@@ -28,10 +28,14 @@ arr = np.arange(21)
 even = arr[arr % 2 == 0]  # modulo, reszta z dzielenia
 print("Parzyste:", even)  # Parzyste: [ 0  2  4  6  8 10 12 14 16 18 20]
 
-arr = np.random.randint(0, 100, size=100)
+# arr = np.random.randint(0, 100, size=100)
 
-mean_values = np.mean(arr) # średnia
-print(mean_values) # 51.63
+# nowoczesniejsze podejscie do liczb losowych
+rng = np.random.default_rng()
+arr = rng.integers(0, 100, size=100)
+
+mean_values = np.mean(arr)  # średnia
+print(mean_values)  # 51.63
 greather_than_mean = arr[arr > mean_values]
 print("Średnia:", mean_values)
 print("Wartości większe od średniej:", greather_than_mean)
