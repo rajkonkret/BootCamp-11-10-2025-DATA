@@ -26,4 +26,16 @@ print(result)
 #  [21 22 23]
 #  [31 32 33]]
 
-
+arr1 = np.array([[[1, 2, 3], [4, 5, 6]]])
+arr2 = np.array([10, 20, 30])
+print(arr1)
+# [[[1 2 3]
+#   [4 5 6]]]
+print(arr2)
+# [10 20 30]
+print(arr1.shape)  # (1, 2, 3)
+print(arr2.shape)  # (3,)
+result = arr1 + arr2
+print(result)
+# [[[11 22 33]
+#   [14 25 36]]]
