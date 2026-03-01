@@ -114,3 +114,19 @@ view_reversed[0] = 999
 print(arr_1d)  # [  0   1   2   3   4   5   6   7   8 999]
 print(view_reversed)  # [999   8   7   6   5   4   3   2   1   0]
 print(view_reversed.base is arr_1d)  # True, widok
+
+arr_3d = np.arange(27).reshape((3, 3, 3))
+print(arr_3d)
+copy_3d = arr_3d.copy()
+copy_3d[0, 0, 0] = -1
+print(copy_3d[0])
+print(arr_3d[0])
+# [[-1  1  2]
+#  [ 3  4  5]
+#  [ 6  7  8]]
+# [[0 1 2]
+#  [3 4 5]
+#  [6 7 8]]
+print(copy.base is arr_3d)  # False, jest to kopia
+
+
