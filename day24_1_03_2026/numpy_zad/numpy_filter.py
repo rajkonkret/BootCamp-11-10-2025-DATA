@@ -27,3 +27,15 @@ print(new_arr)  # [43 44]
 arr = np.arange(21)
 even = arr[arr % 2 == 0]  # modulo, reszta z dzielenia
 print("Parzyste:", even)  # Parzyste: [ 0  2  4  6  8 10 12 14 16 18 20]
+
+arr = np.random.randint(0, 100, size=100)
+
+mean_values = np.mean(arr) # średnia
+print(mean_values) # 51.63
+greather_than_mean = arr[arr > mean_values]
+print("Średnia:", mean_values)
+print("Wartości większe od średniej:", greather_than_mean)
+# Średnia: 48.78
+# Wartości większe od średniej: [92 95 63 53 52 90 52 52 55 89 68 68 50 83 80 70 95 91 55 78 74 97 49 96
+#  82 53 55 70 69 86 52 55 92 90 89 79 96 74 79 64 94 76 49 80 65 94 86 66
+#  81]
