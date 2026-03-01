@@ -80,3 +80,13 @@ mask = np.arange(len(arr)) % 2 == 0
 print("Maska filtrowania:", mask)
 # Maska filtrowania: [ True False  True False  True False  True False  True False  True False
 #   True False  True False  True False  True False]
+
+arr = np.array([1, 2, np.nan, 4, np.inf, 6, -np.inf, 8])
+# np.inf - wartość nieskończona
+print(arr)  # [  1.   2.  nan   4.  inf   6. -inf   8.]
+filtered_arr_inf = arr[np.isinf(arr)]
+print(filtered_arr_inf)  # [ inf -inf]
+filtered_arr_nan = arr[np.isnan(arr)]
+print(filtered_arr_nan)  # [nan]
+filtered_arr = arr[np.isfinite(arr)]  # bez inf i bez nan
+print(filtered_arr)  # [1. 2. 4. 6. 8.]
