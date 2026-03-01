@@ -97,3 +97,11 @@ print(arr)
 # [[ 10 990   3   4]
 #  [ 50 990   7   8]
 #  [  9  99  11  12]]
+
+lista = [1, 2, 3, 4, 5]
+print(lista * 2)  # [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
+lista_slice = lista[1:3]  # w listach pythonowych jest to kopia
+print(lista_slice)
+lista_slice[0] = 99
+print(lista)  # [1, 2, 3, 4, 5]
+print(lista_slice)  # [99, 3]
