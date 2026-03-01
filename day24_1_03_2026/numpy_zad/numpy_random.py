@@ -30,4 +30,15 @@ print(x)
 
 # bez powtórzen -> False
 x = random.choice([3, 5, 7, 9], 2, replace=False)
-print(x) # [7 9]
+print(x)  # [7 9]
+
+# x = random.choice([3, 5, 7, 9], 5, replace=False)
+# print(x) # [7 9]
+# # ValueError: Cannot take a larger sample than population when 'replace=False'
+
+gen = random.default_rng()  # gen - nowsze podejscie, mozna miec wiele oddizelnych generatorów w jednym projekcie
+x = gen.choice([3, 5, 7, 9], 2, replace=False)
+print(x)  # [7 5]
+
+x = random.random_sample((5,))
+print(x)  # [0.64024563 0.42095767 0.86675079 0.6781165  0.38156905]
