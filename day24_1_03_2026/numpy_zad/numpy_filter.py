@@ -43,3 +43,11 @@ print("Wartości większe od średniej:", greather_than_mean)
 # Wartości większe od średniej: [92 95 63 53 52 90 52 52 55 89 68 68 50 83 80 70 95 91 55 78 74 97 49 96
 #  82 53 55 70 69 86 52 55 92 90 89 79 96 74 79 64 94 76 49 80 65 94 86 66
 #  81]
+
+arr = np.array([1, 2, np.nan, 4, np.nan, 6, 7])
+print(arr)  # [ 1.  2. nan  4. nan  6.  7.] nan -> None
+
+filtered_arr = arr[~np.isnan(arr)]  # ~ negacja (not)
+print("Tablica bez NaN:", filtered_arr)  # Tablica bez NaN: [1. 2. 4. 6. 7.]
+
+
