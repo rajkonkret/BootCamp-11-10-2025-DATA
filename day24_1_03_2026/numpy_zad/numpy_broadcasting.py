@@ -92,3 +92,25 @@ print(result)
 #  [12 22]
 #  [13 23]]
 print(result.shape)  # (3, 2)
+
+x = np.arange(5)
+y = np.arange(3)
+print(x.shape)  # (5,)
+print(y.shape)  # (3,)
+# print(x + y)  # ValueError: operands could not be broadcast together with shapes (5,) (3,)
+
+x = np.arange(5)
+y = np.arange(3)
+print(y)  # [0 1 2]
+y = np.arange(3).reshape(3, 1)
+print(x.shape)  # (5,)
+print(y.shape)  # (3, 1)
+print(x + y)
+#   [0 1 2 3 4]
+# 0] 0
+# 1]     3
+# 2]         6
+
+# [[0 1 2 3 4]
+#  [1 2 3 4 5]
+#  [2 3 4 5 6]]
