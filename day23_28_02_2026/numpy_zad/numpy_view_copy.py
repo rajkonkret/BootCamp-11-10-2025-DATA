@@ -42,5 +42,21 @@ print(arr)
 print(view)
 # [ 0  1 99  3  4  5  6  7  8  9]
 # [99  3  4]
-print(view.base is arr)  # True
+print(view.base is arr)  # True, jest to widok
 
+arr = np.arange(10)
+copy = arr[::2]
+copy[0] = 99
+print(copy)
+print(arr)
+# [99  2  4  6  8]
+# [99  1  2  3  4  5  6  7  8  9]
+print(copy.base in arr)  # True, jest to widok
+
+arr = np.arange(10)
+copy = arr[::2]
+copy[0] = 67
+print(copy[0])  # 67
+print(arr[0])  # 67
+
+print(copy.base in arr)  # True, jest to widok
