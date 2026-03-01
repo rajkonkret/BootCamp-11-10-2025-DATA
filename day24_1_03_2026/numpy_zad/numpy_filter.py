@@ -65,3 +65,18 @@ print(filtered_arr.shape)
 #  0.96907896 0.91460931 0.8908536  0.64948891 0.58470349 0.89013183
 #  0.74612299]
 # (13,)
+
+fruits = np.array(['jabłko', 'banan', 'wiśnie', 'gruszka', 'kiwi'])
+filtered_fruits = fruits[np.char.find(fruits, 'a') >= 0]  # >= bo zwraca indeks, -1 gdy nie ma
+print("Owoce zawierające literę a:", filtered_fruits)
+# Owoce zawierające literę a: ['jabłko' 'banan' 'gruszka']
+
+arr = np.arange(20)
+filtered_arr = arr[np.arange(len(arr)) % 2 == 0]  # wygenerowaliśmy tablice indeksów
+print("Wartości na parzystych indeksach:", filtered_arr)
+# Wartości na parzystych indeksach: [ 0  2  4  6  8 10 12 14 16 18]
+
+mask = np.arange(len(arr)) % 2 == 0
+print("Maska filtrowania:", mask)
+# Maska filtrowania: [ True False  True False  True False  True False  True False  True False
+#   True False  True False  True False  True False]
