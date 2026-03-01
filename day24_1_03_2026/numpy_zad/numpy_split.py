@@ -75,3 +75,48 @@ print(new_arr)
 #        [12],
 #        [15],
 #        [18]])]
+
+new_arr = np.vsplit(arr, 3)
+print(new_arr)
+# [array([[1, 2, 3],
+#        [4, 5, 6]]), array([[ 7,  8,  9],
+#        [10, 11, 12]]), array([[13, 14, 15],
+#        [16, 17, 18]])]
+
+# ValueError: dsplit only works on arrays of 3 or more dimensions
+# new_arr = np.dsplit(arr, 3)
+
+arr3d = arr.reshape((6, 1, 3))
+new_arr = np.dsplit(arr3d, 3)
+print(new_arr)
+# [array([[[ 1]],
+#
+#        [[ 4]],
+#
+#        [[ 7]],
+#
+#        [[10]],
+#
+#        [[13]],
+#
+#        [[16]]]), array([[[ 2]],
+#
+#        [[ 5]],
+#
+#        [[ 8]],
+#
+#        [[11]],
+#
+#        [[14]],
+#
+#        [[17]]]), array([[[ 3]],
+#
+#        [[ 6]],
+#
+#        [[ 9]],
+#
+#        [[12]],
+#
+#        [[15]],
+#
+#        [[18]]])]
