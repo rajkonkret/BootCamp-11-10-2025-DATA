@@ -60,3 +60,21 @@ print(copy[0])  # 67
 print(arr[0])  # 67
 
 print(copy.base in arr)  # True, jest to widok
+
+# reshape() - wskazuje kształt
+arr = np.arange(1, 13)
+print(arr)  # [ 1  2  3  4  5  6  7  8  9 10 11 12]
+arr = np.arange(1, 13).reshape(3, 4)
+print(arr)
+# [[ 1  2  3  4]
+#  [ 5  6  7  8]
+#  [ 9 10 11 12]]
+
+view_col = arr[:, 1].view()
+print(view_col)  # [ 2  6 10]
+view_col[:] = 99
+print(arr)
+# [[ 1 99  3  4]
+#  [ 5 99  7  8]
+#  [ 9 99 11 12]]
+
