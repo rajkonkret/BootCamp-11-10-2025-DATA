@@ -1,0 +1,58 @@
+zad1
+--------
+# stworzenie ksiazki telefonicznej z wykorzystanie petli while True
+# dodaj kontakt, usun kontakt, wyszukaj kontakt, wyswietl kontakty
+
+
+
+
+
+
+zad2— Prosty notatnik z menu
+
+Stwórz aplikację konsolową, która umożliwia:
+	•	dodawanie notatek (krótki tekst),
+	•	usuwanie notatek (po numerze/id),
+	•	edycję notatki,
+	•	przeglądanie wszystkich notatek.
+
+Użyj pętli while True, prostej listy (lub słownika) oraz funkcji.
+
+zad3
+# -----------
+# stworzyc system zarzadzania biblioteką klasa Book
+# dodnie ksiazki, wypozyczenie ksiazki, zwracanie ksiązki
+# obsłużyc błedy
+# Dodac Library i usera
+---------------
+
+zad 4 — Prosty system rejestracji uczniów do kursu
+
+Napisz aplikację, która pozwala:
+	•	dodać ucznia (imię, nazwisko, wiek, e-mail),
+	•	wypisać wszystkich uczniów,
+	•	wyszukać ucznia po nazwisku,
+	•	usunąć ucznia.
+
+Każdy uczeń to osobna klasa Student. Dodaj walidację e-maila i wieku.
+
+
+zad5 — Symulator bankomatu
+
+Aplikacja z menu:
+	•	zakładanie konta bankowego (imię, saldo początkowe),
+	•	wpłata, wypłata, sprawdzanie salda,
+	•	obsłuż wyjątki (np. wypłata większa niż saldo),
+	•	opcja zakończenia programu.
+
+zad6
+z api nbp kurs złota
+dzienny, historyczny
+
+zad7 — Symulator bankomatu
+
+Aplikacja z menu:
+	•	zakładanie konta bankowego (imię, saldo początkowe),
+	•	wpłata, wypłata, sprawdzanie salda,
+	•	obsłuż wyjątki (np. wypłata większa niż saldo),
+	•	opcja zakończenia programu.
