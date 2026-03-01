@@ -78,3 +78,22 @@ print(arr)
 #  [ 5 99  7  8]
 #  [ 9 99 11 12]]
 
+# kopia
+copy_row = arr[0, :].copy()
+copy_row[:] = 0
+print(arr)
+# [[ 1 99  3  4]
+#  [ 5 99  7  8]
+#  [ 9 99 11 12]]
+print(copy_row)  # [0 0 0 0]
+print(copy_row.base is arr)  # False nie jest widokiem, jest kopią
+
+view_submatrix = arr[:2, :2].view()
+view_submatrix *= 10
+print(view_submatrix)
+# [[ 10 990]
+#  [ 50 990]]
+print(arr)
+# [[ 10 990   3   4]
+#  [ 50 990   7   8]
+#  [  9  99  11  12]]
