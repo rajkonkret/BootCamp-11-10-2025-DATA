@@ -98,3 +98,11 @@ print(df['date_served'].head(3))
 # 1    Monday
 # 2    Monday
 # Name: date_served, dtype: str
+
+channel_dict = {"House Ads": 1, "Instagram": 2, "Facebook": 3, "Email": 4, 'Push': 5}
+df['channel_code'] = df['marketing_channel'].map(channel_dict)
+print(df['channel_code'].head(3))
+# 0    1.0
+# 1    1.0
+# 2    1.0
+# Name: channel_code, dtype: float64
