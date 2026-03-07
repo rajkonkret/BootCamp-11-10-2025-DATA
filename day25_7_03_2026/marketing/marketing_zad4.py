@@ -20,13 +20,28 @@ print(language_age.head(10))
 #
 # plt.show()
 
-language_age.plot(kind="line", figsize=(12, 7))
+# language_age.plot(kind="line", figsize=(12, 7))
+#
+# plt.title("Liczba użytkowników wg grupy wiekowej i preferowanego języka")
+# plt.xlabel("Grupa wiekowa")
+# plt.ylabel("Liczba użytkowników")
+# plt.xticks(rotation=45)
+# plt.legend(title="Język preferowany")
+#
+# plt.tight_layout()
+#
+# plt.show()
 
-plt.title("Liczba użytkowników wg grupy wiekowej i preferowanego języka")
-plt.xlabel("Grupa wiekowa")
-plt.ylabel("Liczba użytkowników")
+language_age = df.groupby(['age_group', 'language_preferred'])['user_id'].count()
+language_age = pd.DataFrame(language_age.unstack(level=0))
+print(language_age)
+
+language_age.plot(kind="bar")
+plt.title("Język w zależności od wieku")
+plt.xlabel("Wiek")
+plt.ylabel("Użytkownicy")
 plt.xticks(rotation=45)
-plt.legend(title="Język preferowany")
+plt.legend(loc="upper right", labels=language_age.columns.values)
 
 plt.tight_layout()
 
