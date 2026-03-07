@@ -12,3 +12,17 @@ print(data.loc[7])
 # Maxpulse             134
 # Calories           253.3
 # Name: 7, dtype: object
+
+data = pd.read_csv('data_with_date.csv')
+
+for x in data.index:
+    if data.loc[x, "Duration"] > 120:
+        data.loc[x, "Duration"] = 120
+print(data)
+
+data = pd.read_csv('data_with_date.csv')
+for x in data.index:
+    if data.loc[x, "Duration"] > 120:
+        data.drop(x, inplace=True)  # inplace - zmienia oryginał
+
+print(data)
