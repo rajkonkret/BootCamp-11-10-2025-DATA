@@ -73,3 +73,24 @@ print(df.loc[[0, 1]])
 # 0       420        50
 # 1       380        40
 print(type(df.loc[[0, 1]]))  # <class 'pandas.DataFrame'>
+
+df = pd.DataFrame(
+    {
+        "Name": [
+            "Tomek",
+            "Radek",
+            "Zenek",
+            "Anna"
+        ],
+        'Age': [22, 45, 35, 29],
+        "Sex": ['male', 'male', 'female', 'female']
+    }
+)
+
+print(df)
+# <class 'pandas.DataFrame'>
+#     Name  Age     Sex
+# 0  Tomek   22    male
+# 1  Radek   45    male
+# 2  Zenek   35  female
+# 3   Anna   29  female
