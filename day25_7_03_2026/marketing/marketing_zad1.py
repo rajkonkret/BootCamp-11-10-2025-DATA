@@ -106,3 +106,18 @@ print(df['channel_code'].head(3))
 # 1    1.0
 # 2    1.0
 # Name: channel_code, dtype: float64
+
+# unikalni użytkownicy dziennie
+daily_users = df.groupby(['date_served'])['user_id'].nunique()
+print("Dziennie:", daily_users)
+
+import matplotlib.pyplot as plt
+
+daily_users.plot()
+
+plt.title("Zasięg dzienny kampani marketingowej")
+plt.xlabel("Data")
+plt.ylabel("Liczba użytkowników")
+plt.xticks(rotation=45)
+
+plt.show()
