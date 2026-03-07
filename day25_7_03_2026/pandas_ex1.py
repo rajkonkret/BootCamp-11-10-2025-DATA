@@ -38,3 +38,38 @@ print(my_var)
 # day2    300
 # day3    390
 # dtype: int64
+
+# wczytanie częściowo
+my_var = pd.Series(calories, index=["day1", "day2"])
+print(my_var)
+# day1    420
+# day2    300
+# dtype: int64
+
+# DataFrame - odwzorowanie kolumn
+data = {
+    "calories": [420, 380, 390],
+    "duration": [50, 40, 45]
+}
+
+df = pd.DataFrame(data)
+print(df)
+#    calories  duration
+# 0       420        50
+# 1       380        40
+# 2       390        45
+
+# loc - dane z wiersza
+print(df.loc[0])
+# calories    420
+# duration     50
+# Name: 0, dtype: int64
+
+
+print(type(df.loc[0]))  # <class 'pandas.Series'>
+
+print(df.loc[[0, 1]])
+#    calories  duration
+# 0       420        50
+# 1       380        40
+print(type(df.loc[[0, 1]]))  # <class 'pandas.DataFrame'>
