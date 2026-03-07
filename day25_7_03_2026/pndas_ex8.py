@@ -60,3 +60,24 @@ print(data)
 
 df = pd.DataFrame({"Miasto": ["Warszawa", "Kraków", "Łódź", "Warszawa", "Gliwice"]})
 print(df)
+
+# df['Miasto'].replace("Warszawa", "Warszawa-Stolica", inplace=True)
+# print(df.to_string()) # DataFrame or Series through chained assignment using an inplace method. od pandas 3
+df['Miasto'] = df['Miasto'].replace("Warszawa", "Warszawa-Stolica")
+print(df.to_string())
+#              Miasto
+# 0  Warszawa-Stolica
+# 1            Kraków
+# 2              Łódź
+# 3  Warszawa-Stolica
+# 4           Gliwice
+
+df = pd.DataFrame({"Miasto": ["Warszawa", "Kraków", "Łódź", "Warszawa", "Gliwice"]})
+df['Miasto'] = df['Miasto'].replace({"Warszawa": "Warszawa-Stolica", "Kraków": "Kraków-Zamkowy"})
+print(df)
+#              Miasto
+# 0  Warszawa-Stolica
+# 1    Kraków-Zamkowy
+# 2              Łódź
+# 3  Warszawa-Stolica
+# 4           Gliwice
