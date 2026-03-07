@@ -166,4 +166,18 @@ print(df)
 # 5    65    Senior    Senior
 
 df = pd.DataFrame({'Miasto': ['Warszawa123', 'Kraków456', "Łódź", "Warszawa789", "Gliwice"]})
+df['Miasto'] = df['Miasto'].replace(r"\d+", "", regex=True)
+print(df)
+#      Miasto
+# 0  Warszawa
+# 1    Kraków
+# 2      Łódź
+# 3  Warszawa
+# 4   Gliwice
 
+# 	•	\d
+# Oznacza dowolną cyfrę (0–9).
+# (\d ≈ [0-9])
+# 	•	+
+# Oznacza jeden lub więcej wystąpień poprzedniego elementu.
+# 	•	\d+ = „ciąg złożony z co najmniej jednej cyfry”
