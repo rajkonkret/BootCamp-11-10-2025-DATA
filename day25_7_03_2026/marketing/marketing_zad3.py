@@ -36,3 +36,15 @@ print(language)
 # date_served         2018-01-01  2018-01-02  ...  2018-01-30  2018-01-31
 # language_preferred                          ...
 # Arabic                     4.0         4.0  ...         6.0         8.0
+
+language.plot()
+
+plt.title("Dzienne preferencje językowe")
+plt.xlabel("Data")
+plt.ylabel("Użytkownicy")
+plt.legend(loc="upper right", labels=language.columns.values)
+plt.xticks(rotation=45)
+
+plt.show()
+
+
