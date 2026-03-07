@@ -74,3 +74,27 @@ print(df.is_house_ads.head(3))
 # 2    True
 # Name: is_house_ads, dtype: bool
 df.to_csv('marketing_is_house_ads.csv', sep=",", index=False)
+
+# zamiana dat na fdatetime
+df['date_served'] = pd.to_datetime(df['date_served'], errors='coerce', format='mixed')
+print(df['date_served'].head(3))
+# 0   2018-01-01
+# 1   2018-01-01
+# 2   2018-01-01
+# Name: date_served, dtype: datetime64[us]
+
+# dni tygodnia numerycznie
+# df['date_served'] = df['date_served'].dt.dayofweek
+# print(df['date_served'].head(3))
+# # 0    0.0 - poniedziałek
+# # 1    0.0
+# # 2    0.0
+# # Name: date_served, dtype: float64
+
+# nazwy dni tygodnia
+# df['date_served'] = df['date_served'].dt.day_name()
+# print(df['date_served'].head(3))
+# 0    Monday
+# 1    Monday
+# 2    Monday
+# Name: date_served, dtype: str
