@@ -57,3 +57,6 @@ print(data)
 # for + drop(per-row)  10000      0.973      6103
 # boolean filter       1000000    0.0119     602352
 # mask + drop(once)    1000000    0.0271     601573
+
+df = pd.DataFrame({"Miasto": ["Warszawa", "Kraków", "Łódź", "Warszawa", "Gliwice"]})
+print(df)
