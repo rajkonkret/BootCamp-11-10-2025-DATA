@@ -57,3 +57,17 @@ df['channel_code'] = df['marketing_channel'].map(channel_dict)
 # unikalni użytkownicy dziennie
 daily_users = df.groupby(['date_served'])['user_id'].nunique()
 print("Dziennie:", daily_users)
+
+df.to_csv("marketing_ok_date.csv")
+
+subscribers = df[df['converted'] == True]['user_id'].nunique()
+total = df['user_id'].nunique()
+print("Subscribers:", subscribers)
+print("Total:", total)
+# Subscribers: 1030
+# Total: 7309
+
+# współczynnik konwersji
+conv_rate = subscribers / total
+print("Covert rate:", conv_rate)  # Covert rate: 0.14092215077301956
+# Covert rate: 14.09 %
