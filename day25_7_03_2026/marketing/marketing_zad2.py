@@ -72,3 +72,10 @@ conv_rate = subscribers / total
 print("Covert rate:", conv_rate)  # Covert rate: 0.14092215077301956
 # Covert rate: 14.09 %
 print("Covert rate:", round(conv_rate * 100, 2), "%")  # Covert rate: 14.09 %
+
+# współczynnik utrzymania użytkowników
+# retained -> is_retained
+retained = df[df['is_retained'] == True]['user_id'].nunique()
+retention = retained / subscribers
+print("Retention rate:", round(retention * 100, 2), "%")
+print("Retention rate:", round(retention * 100, 2), "%")  # Retention rate: 65.83 %
