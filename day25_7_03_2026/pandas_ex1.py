@@ -94,3 +94,36 @@ print(df)
 # 1  Radek   45    male
 # 2  Zenek   35  female
 # 3   Anna   29  female
+
+# wyciagniecie danych z kolumny "Age"
+print(df['Age'])
+# 0    22
+# 1    45
+# 2    35
+# 3    29
+# Name: Age, dtype: int64
+
+# wyciągniecie maksymalnej wartości
+print(df['Age'].max())  # 45
+
+print(df.describe())
+#              Age
+# count   4.000000
+# mean   32.750000
+# std     9.742518
+# min    22.000000
+# 25%    27.250000
+# 50%    32.000000
+# 75%    37.500000
+# max    45.000000
+
+# median - wartość środkowa zbioru, tyle samo elementów jest o wartości mniejszej i większej
+
+print(df.loc[0])
+#     Name  Age     Sex
+# 0  Tomek   22    male
+# wypisane jeden wiersz loc
+# Name    Tomek
+# Age        22
+# Sex      male
+# Name: 0, dtype: object
