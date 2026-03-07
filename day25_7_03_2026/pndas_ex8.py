@@ -110,3 +110,26 @@ print(df)
 # 2    30   Dorosły            NaN
 # 3    15   Dorosły  Niepołnoletni
 # 4    40   Dorosły            NaN
+
+df = pd.DataFrame({"Miasto": ["Warszawa", "Kraków", "Łódź", "Warszawa", "Gliwice"]})
+# df['Miasto'] = df['Miasto'].replace("Łódź", "Łódź Przemysłowa")
+df['Miasto'] = df['Miasto'].replace(r"^Ł", "Łódź Przemysłowa", regex=True)
+# 2  Łódź Przemysłowaódź
+df['Miasto'] = df['Miasto'].replace(r"^Ł.*", "Łódź Przemysłowa", regex=True)
+# 2  Łódź Przemysłowa
+print(df.to_string())
+
+# regex
+# ^ - zaczynające się od
+# ^Ł - zaczynajćae sie od Ł
+# 	•	^
+# → oznacza początek tekstu.
+# Dzięki temu wzorzec szuka tylko takich napisów, które zaczynają się od określonego fragmentu.
+# 	•	Ł
+# → dosłowna litera „Ł”.
+# Czyli szukamy napisów zaczynających się od „Ł”.
+# 	•	.
+# → kropka oznacza dowolny pojedynczy znak (litera, cyfra, spacja, znak specjalny).
+# 	•	*
+# → gwiazdka oznacza „zero lub więcej wystąpień” poprzedniego elementu.
+# W tym przypadku „dowolny znak powtarzany dowolną liczbę razy (albo wcale)”.
