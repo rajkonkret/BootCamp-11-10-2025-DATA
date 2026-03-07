@@ -117,3 +117,15 @@ print(channel_retension_rate)
 # Instagram    68.103448
 # Push         70.129870
 # Name: user_id, dtype: float64
+
+import matplotlib.pyplot as plt
+
+# bar
+channel_retension_rate.plot(kind='bar')
+
+plt.title("Wskażnik utrzymania wg kanału")
+plt.xlabel("Kanał", size=14)
+plt.ylabel("Konwersja (%)", size=14)
+plt.xticks(rotation=45)
+
+plt.show()
