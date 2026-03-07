@@ -38,3 +38,9 @@ data['Duration'] = data['Duration'].where(data['Duration'] <= 120, 120)
 print(45 * "-")
 print('Where:', data)
 # 7        120  '2020/12/08'    104       134     253.3
+
+data = pd.read_csv('data_with_date.csv')
+data['Duration'] = data['Duration'].mask(data['Duration'] > 120, 120)
+# zamaskuj spełniające warunek, ustaw 120
+print(45 * "-")
+print("Mask:", data)
