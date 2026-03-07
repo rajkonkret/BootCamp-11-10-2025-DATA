@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 
 # df = pd.read_csv('marketing_r.csv')
@@ -62,3 +63,14 @@ df.info()
 # dtypes: bool(1), object(1), str(10)
 # memory usage: 872.5+ KB
 print(df.head(1).to_string())
+
+# marketing_channel
+# # House Ads
+# is_house_ads -> True, False
+df['is_house_ads'] = np.where(df['marketing_channel'] == "House Ads", True, False)
+print(df.is_house_ads.head(3))
+# 0    True
+# 1    True
+# 2    True
+# Name: is_house_ads, dtype: bool
+df.to_csv('marketing_is_house_ads.csv', sep=",", index=False)
