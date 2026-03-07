@@ -79,3 +79,41 @@ retained = df[df['is_retained'] == True]['user_id'].nunique()
 retention = retained / subscribers
 print("Retention rate:", round(retention * 100, 2), "%")
 print("Retention rate:", round(retention * 100, 2), "%")  # Retention rate: 65.83 %
+
+# House Ads
+house_ads = df[df['subscribing_channel'] == "House Ads"]
+retained = house_ads[house_ads['is_retained'] == True]['user_id'].nunique()
+subscribers = house_ads[house_ads['converted'] == True]['user_id'].nunique()
+retention_rate = retained / subscribers
+print("Retention rate:", round(retention_rate * 100, 2), "%")  # Retention rate: 16.8 %
+# Retention rate: 58.05 %
+
+retained = df[df['is_retained'] == True].groupby(['subscribing_channel'])['user_id'].nunique()
+print(retained)
+# subscribing_channel
+# Email        141
+# Facebook     152
+# House Ads    173
+# Instagram    158
+# Push          54
+# Name: user_id, dtype: int64
+
+subscribers = df[df['converted'] == True].groupby(['subscribing_channel'])['user_id'].nunique()
+print(subscribers)
+# subscribing_channel
+# Email        161
+# Facebook     221
+# House Ads    298
+# Instagram    232
+# Push          77
+# Name: user_id, dtype: int64
+
+channel_retension_rate = (retained / subscribers) * 100
+print(channel_retension_rate)
+# subscribing_channel
+# Email        87.577640
+# Facebook     68.778281
+# House Ads    58.053691
+# Instagram    68.103448
+# Push         70.129870
+# Name: user_id, dtype: float64
