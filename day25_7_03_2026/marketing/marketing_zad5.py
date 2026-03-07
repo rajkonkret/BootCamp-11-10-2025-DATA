@@ -40,3 +40,16 @@ print(retention_rate.tail())  # pięć ostatnich
 # 1/7/18                 0.5  0.750000   0.526316   0.400000  0.666667
 # 1/8/18                 NaN  0.888889   0.500000   0.625000  1.000000
 # 1/9/18                 0.5  0.285714   0.850000   0.666667  0.500000
+
+
+retention_rate.plot()
+
+plt.title("Data w zależności od kanału")
+plt.xlabel("Data")
+plt.ylabel("Użytkownicy")
+# plt.legend(loc="upper right", labels=retention_rate.columns.values)
+plt.legend(loc="upper right", labels=["E", "F", "HA", "I", "P"])
+
+plt.xticks(rotation=45)
+
+plt.show()
