@@ -71,3 +71,4 @@ print("Total:", total)
 conv_rate = subscribers / total
 print("Covert rate:", conv_rate)  # Covert rate: 0.14092215077301956
 # Covert rate: 14.09 %
+print("Covert rate:", round(conv_rate * 100, 2), "%")  # Covert rate: 14.09 %
