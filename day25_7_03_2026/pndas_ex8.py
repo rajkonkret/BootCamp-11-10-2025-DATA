@@ -26,3 +26,15 @@ for x in data.index:
         data.drop(x, inplace=True)  # inplace - zmienia oryginał
 
 print(data)
+
+data = pd.read_csv('data_with_date.csv')
+data['Duration'] = data['Duration'].clip(upper=120)  # clip - przyciecie
+print(45 * "-")
+print("Clip:", data)
+
+data = pd.read_csv('data_with_date.csv')
+data['Duration'] = data['Duration'].where(data['Duration'] <= 120, 120)
+# wyszukaj spełniające warunek, pozostałe 120
+print(45 * "-")
+print('Where:', data)
+# 7        120  '2020/12/08'    104       134     253.3
