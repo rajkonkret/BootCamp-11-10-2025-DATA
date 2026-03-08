@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 import marketing_zad6 as fun
 
@@ -21,3 +22,8 @@ print(alloc.head())
 # control            270
 # personalization    284
 # Name: user_id, dtype: int64
+
+# alloc.plot(kind="bar")
+# plt.title("Personalizacja testu")
+# plt.ylabel("Liczba")
+# plt.show()
