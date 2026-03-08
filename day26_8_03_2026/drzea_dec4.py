@@ -45,3 +45,28 @@ test_input = pd.DataFrame([
     {"wiek": 37, "zarobki": 35},
     {"wiek": 60, "zarobki": 20}
 ])
+
+predicted = model.predict(test_input)
+test_input['predykcja'] = ['tak' if p == 1 else 'nie' for p in predicted]
+print("Predykcja dla nowych danych:")
+print(test_input)
+# Predykcja dla nowych danych:
+#    wiek  zarobki predykcja
+# 0    34       60       tak
+# 1    50       40       nie
+# 2    28       30       nie
+# 3    45       65       tak
+# 4    37       35       tak
+# 5    60       20       nie
+
+accuracy = metrics.accuracy_score(y, y_pred)
+print(f"Acurracy: {accuracy:.2f}")  # Acurracy: 1.00
+
+# accuracy = metrics.accuracy_score(y, predicted)
+# print(f"Acurracy: {accuracy:.2f}")  #
+
+plt.figure(figsize=(10, 6))
+plot_tree(model, feature_names=['wiek', 'zarobki'],
+          class_names=['nie', 'tak'], filled=True)
+plt.title("Drzewo decyzyjne")
+plt.show()
