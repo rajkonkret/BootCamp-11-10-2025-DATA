@@ -27,3 +27,24 @@ print(alloc.head())
 # plt.title("Personalizacja testu")
 # plt.ylabel("Liczba")
 # plt.show()
+
+subscribes = email.groupby(['user_id', 'variant'])['converted'].max()
+print(subscribes.head())
+# user_id     variant
+# a100000526  personalization     True
+# a100000530  personalization     True
+# a100000534  personalization    False
+# a100000538  personalization     True
+# a100000542  personalization     True
+# Name: converted, dtype: bool
+
+subscribers_df = pd.DataFrame(subscribes.unstack(level=1))
+control = subscribers_df['control'].dropna()
+print(control.head())
+# user_id
+# a100000687    False
+# a100000688     True
+# a100000689     True
+# a100000690     True
+# a100000691     True
+# Name: control, dtype: object
