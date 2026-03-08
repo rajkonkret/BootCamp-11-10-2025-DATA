@@ -76,3 +76,33 @@ converted['expected_arabic_rate'] = converted['english_conv_rate'] * arabic_inde
 converted['expected_german_rate'] = converted['english_conv_rate'] * german_index
 
 print(converted['expected_spanish_rate'])  # 2018-01-11    1.033358
+
+converted['expected_spanish_conv'] = converted['expected_spanish_rate'] * converted[('user_id', 'Spanish')]
+converted['expected_arabic_conv'] = converted['expected_arabic_rate'] * converted[('user_id', 'Arabic')]
+converted['expected_german_conv'] = converted['expected_german_rate'] * converted[('user_id', 'German')]
+
+print(converted['expected_spanish_conv'])  # 2018-01-12    1.033358
+
+converted = converted.loc['2018-01-11':'2018-01-31']
+
+expected_subs = (
+        converted['expected_spanish_conv'].sum()
+        + converted['expected_arabic_conv'].sum()
+        + converted['expected_german_conv'].sum()
+)
+
+print("Expected:", expected_subs)  # Expected: 27.457799428147837
+
+# actual_subs = (
+#         converted[('converted', 'Spanish')].sum()
+#         + converted[('converted', 'Arabic')].sum()
+#         + converted[('converted', 'German')].sum()
+# )
+
+# bardziej pythonicznie
+actual_subs = sum([
+    converted[('converted', 'Spanish')].sum(),
+    converted[('converted', 'Arabic')].sum(),
+    converted[('converted', 'German')].sum(),
+])
+print("Actual subs:", actual_subs)  # Actual subs: 26.0
