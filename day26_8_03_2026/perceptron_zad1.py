@@ -58,7 +58,7 @@ def plot_decision_boundary(X, y, model):
     Z = Z.reshape(xx.shape)
 
     plt.contourf(xx, yy, Z, alpha=0.3, cmap=plt.cm.Paired)
-    plt.scatter(X[:0], X[:, 1], c=y, cmap=plt.cm.Paired, edgecolors="k")
+    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired, edgecolors="k")
     plt.title("Podział obszaru decyzyjnego")
     plt.xlabel("X1")
     plt.ylabel("X2")
@@ -114,3 +114,5 @@ print("Przewidywane wyniki:", predictions)
 # [0.02 0.01]
 # -0.03
 # Przewidywane wyniki: [0 0 0 1]
+
+plot_decision_boundary(X, y, p)
