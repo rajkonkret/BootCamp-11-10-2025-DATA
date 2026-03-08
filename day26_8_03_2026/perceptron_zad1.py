@@ -115,4 +115,35 @@ print("Przewidywane wyniki:", predictions)
 # -0.03
 # Przewidywane wyniki: [0 0 0 1]
 
-plot_decision_boundary(X, y, p)
+# plot_decision_boundary(X, y, p)
+
+print("Trening OR")
+# 0 or 0 0
+# 1 or 0 1
+# 0 or 1 1
+# 1 or 1 1
+
+
+# dane treningowe
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+y = np.array([0, 1, 1, 1])
+print(X.dtype)  # int64
+
+# perceptron
+p = Perceptron(learnig_rate=0.01, epochs=10)
+
+# nauka perceptronu
+p.fit(X, y)
+
+# testowanie perceptronu
+predictions = p.predict(X)
+print("Przewidywane wyniki:", predictions)
+# [0.01 0.01]
+# -0.01
+# Przewidywane wyniki: [0 1 1 1]
+
+# ustawienia dla operacji AND - sprawdzimy OR - siec nie zadziała poprawnie
+p.set_fit()
+predictions = p.predict(X)
+print("Przewidywane wyniki:", predictions)
+# Przewidywane wyniki: [0 0 0 1] - błedne wyniki
