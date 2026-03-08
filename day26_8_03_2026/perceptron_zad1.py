@@ -43,8 +43,27 @@ class Perceptron:
         return np.array([self.activation_function(x) for x in linear_output])
 
     def set_fit(self):
-        self.weights = np.array([0.2, 0.1])
-        self.bias = 0.2
+        self.weights = np.array([0.02, 0.01])
+        self.bias = -0.03
+
+
+def plot_decision_boundary(X, y, model):
+    x_min, x_max = -0.5, 1.5
+    y_min, y_max = -0.5, 1.5
+
+    xx, yy = np.meshgrid(np.linspace(x_min, x_max, 100),
+                         np.linspace(y_min, y_max, 100))
+
+    Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = Z.reshape(xx.shape)
+
+    plt.contourf(xx, yy, Z, alpha=0.3, cmap=plt.cm.Paired)
+    plt.scatter(X[:0], X[:, 1], c=y, cmap=plt.cm.Paired, edgecolors="k")
+    plt.title("Podział obszaru decyzyjnego")
+    plt.xlabel("X1")
+    plt.ylabel("X2")
+
+    plt.show()
 
 
 # AND
@@ -66,3 +85,32 @@ p.fit(X, y)
 # testowanie perceptronu
 predictions = p.predict(X)
 print("Przewidywane wyniki:", predictions)
+# [0.2 0.1]
+# -0.20000000000000004
+# Przewidywane wyniki: [0 0 0 1]
+
+# perceptron
+p = Perceptron(learnig_rate=0.01, epochs=3)
+
+# nauka perceptronu
+p.fit(X, y)
+
+# testowanie perceptronu
+predictions = p.predict(X)
+print("Przewidywane wyniki:", predictions)
+# [0.02 0.01]
+# -0.019999999999999997
+# Przewidywane wyniki: [0 0 1 1] błedne dane
+
+# perceptron
+p = Perceptron(learnig_rate=0.01, epochs=10)
+
+# nauka perceptronu
+p.fit(X, y)
+
+# testowanie perceptronu
+predictions = p.predict(X)
+print("Przewidywane wyniki:", predictions)
+# [0.02 0.01]
+# -0.03
+# Przewidywane wyniki: [0 0 0 1]
