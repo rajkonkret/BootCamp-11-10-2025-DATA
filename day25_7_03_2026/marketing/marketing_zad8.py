@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import marketing_zad6 as fun
+import function_tools
 
 # df = pd.read_csv('marketing_ok_date.csv', sep=",")
 df = pd.read_csv('marketing_is_house_ads.csv', sep=",")
@@ -71,4 +71,4 @@ print("Personalization conversion rate:", np.mean(personalization))
 # Control conversion rate: 0.2814814814814815, średnai
 # Personalization conversion rate: 0.3908450704225352, średnai
 
-print("Lift:", )
+print("Lift:", function_tools.lift(control, personalization))  # Lift: 39%
