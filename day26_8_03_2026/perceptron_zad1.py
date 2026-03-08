@@ -45,3 +45,24 @@ class Perceptron:
     def set_fit(self):
         self.weights = np.array([0.2, 0.1])
         self.bias = 0.2
+
+
+# AND
+# 0 and 0 = 0
+# 0 and 1 = 0
+# 1 and 0 = 0
+# 1 and 1 = 1
+
+# dane trenigowa
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+y = np.array([0, 0, 0, 1])
+
+# perceptron
+p = Perceptron(learnig_rate=0.1, epochs=10)
+
+# nauka perceptronu
+p.fit(X, y)
+
+# testowanie perceptronu
+predictions = p.predict(X)
+print("Przewidywane wyniki:", predictions)
