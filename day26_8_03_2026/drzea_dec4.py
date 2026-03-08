@@ -1,3 +1,8 @@
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+import matplotlib.pyplot as plt
+from sklearn import metrics
+
 dane = [
     {"wiek": 55, "zarobki": 70, "decyzja": "tak"},
     {"wiek": 53, "zarobki": 50, "decyzja": "nie"},
