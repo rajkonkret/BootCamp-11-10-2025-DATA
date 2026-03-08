@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from scipy import stats
+
 import function_tools
 
 # df = pd.read_csv('marketing_ok_date.csv', sep=",")
@@ -72,3 +74,29 @@ print("Personalization conversion rate:", np.mean(personalization))
 # Personalization conversion rate: 0.3908450704225352, średnai
 
 print("Lift:", function_tools.lift(control, personalization))  # Lift: 39%
+
+def ab_segmentation(segment):
+    for subsegment in np.unique(df[segment].values):
+        print(subsegment)
+
+    email = df[(df["marketing_channel"] == 'Email') & (df[segment] == subsegment)]
+    print(email.head().to_string())
+
+    subscribers = email.groupby(['user_id', 'variant'])['converted'].max()
+    print(subscribers.head())
+    subscribers = pd.DataFrame(subscribers.unstack(level=1))
+
+    control = subscribers['control'].dropna()
+    personalization = subscribers['personalization'].dropna()
+    print(control.dtype, personalization.dtype)
+
+    print("lift:", function_tools.lift(control, personalization))
+    control = control.astype(int)
+    personalization = personalization.astype(int)
+    print("T-satic:", stats.ttest_ind(control, personalization), '\n\n')  # t-static - różnica średnich
+    # p < 0.05 może sugerowac powtarzalnośc wyników
+
+ab_segmentation('language_displayed')
+ab_segmentation('age_group')
+# lift: -100%
+# T-satic: TtestResult(statistic=np.float64(3.326565456420339), pvalue=np.float64(0.0016358623456360487), df=np.float64(51.0))
