@@ -21,8 +21,8 @@ np.random.seed(42)
 W_hidden = np.random.rand(2, 2) * 2 - 1
 W_output = np.random.rand(2, 2) * 2 - 1
 
-learning_rate = 0.1
-epochs = 5000
+learning_rate = 0.01
+epochs = 500000
 
 for epoch in range(epochs):
     # warstwa ukryta
@@ -44,3 +44,15 @@ for epoch in range(epochs):
     # aktualizacja wag
     W_output += hidden_output.T.dot(d_output) * learning_rate
     W_hidden += X.T.dot(d_hidden) * learning_rate
+
+# testowanie XOR
+for i in range(4):
+    # warstwa ukryta
+    hidden_input = np.dot(X[i], W_hidden)
+    hidden_output = relu(hidden_input)
+
+    # warstwa wyjściowa
+    output_input = np.dot(hidden_output, W_output)
+    output = relu(output_input)
+
+    print(f"Wejście: {X[i]} -> Przewidywane wyjścia: {output[0]:.4f}")
