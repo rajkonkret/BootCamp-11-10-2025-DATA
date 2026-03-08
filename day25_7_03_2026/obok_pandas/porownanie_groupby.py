@@ -19,7 +19,7 @@ print("Czas:", time.time() - start)  # Czas: 13.816066265106201
 start = time.time()
 df = pl.read_csv(filename)
 result = df.group_by('category').agg(pl.col("value").sum())
-print("Pandas groupby:", result.to_pandas())
+print("Polars groupby:", result.to_pandas())
 print("Czas:", time.time() - start)  # Czas: 2.5797770023345947
 
 # polars lazy scan
@@ -31,5 +31,5 @@ result = (
     .agg(pl.col("value").sum())
     .collect()  # bez tego nie uruchomi się zadanie
 )
-print("Pandas groupby:", result.to_pandas())
+print("Polars groupby:", result.to_pandas())
 print("Czas:", time.time() - start)  # Czas: 3.360197067260742
