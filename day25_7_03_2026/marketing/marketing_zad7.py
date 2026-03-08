@@ -1,6 +1,4 @@
 import pandas as pd
-from torch.ao.quantization import prepare_qat
-
 import marketing_zad6 as fun
 
 # df = pd.read_csv('marketing_ok_date.csv', sep=",")
