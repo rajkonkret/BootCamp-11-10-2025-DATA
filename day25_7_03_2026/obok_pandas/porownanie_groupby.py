@@ -1,0 +1,35 @@
+import time
+import dask.dataframe as dd
+import pandas as pd
+import polars as pl
+import platform, sys
+
+filename = 'bigfile_polars.csv'
+
+print("executable:", sys.executable)
+print("machine:", platform.machine())          # arm64 albo x86_64
+print("architecture:", platform.architecture())
+
+start = time.time()
+df = pd.read_csv(filename)
+result = df.groupby('category')['value'].sum()
+print("Pandas groupby:", result)
+print("Czas:", time.time() - start)  # Czas: 23.781031370162964
+
+start = time.time()
+df = pl.read_csv(filename)
+result = df.group_by('category').agg(pl.col("value").sum())
+print("Pandas groupby:", result.to_pandas())
+print("Czas:", time.time() - start)  # Czas: 3.856045961380005
+
+# polars lazy scan
+start = time.time()
+
+result = (
+    pl.scan_csv(filename)
+    .group_by("category")
+    .agg(pl.col("value").sum())
+    .collect()  # bez tego nie uruchomi się zadanie
+)
+print("Pandas groupby:", result.to_pandas())
+print("Czas:", time.time() - start)  # Czas: 3.856045961380005
