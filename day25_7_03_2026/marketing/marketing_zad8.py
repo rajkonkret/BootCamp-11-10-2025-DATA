@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import marketing_zad6 as fun
 
@@ -48,3 +49,26 @@ print(control.head())
 # a100000690     True
 # a100000691     True
 # Name: control, dtype: object
+
+control.info()
+# <class 'pandas.Series'>
+# Index: 270 entries, a100000687 to a100007293
+# Series name: control
+# Non-Null Count  Dtype
+# --------------  -----
+# 270 non-null    object
+# dtypes: object(1)
+# memory usage: 4.2+ KB
+
+personalization = subscribers_df['personalization'].dropna()
+print(personalization.tail())
+# user_id
+# a100007273    True
+# a100007274    True
+
+print("Control conversion rate:", np.mean(control))  # średnia
+print("Personalization conversion rate:", np.mean(personalization))
+# Control conversion rate: 0.2814814814814815, średnai
+# Personalization conversion rate: 0.3908450704225352, średnai
+
+print("Lift:", )
