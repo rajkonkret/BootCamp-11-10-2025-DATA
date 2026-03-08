@@ -55,3 +55,24 @@ print(converted.head(3))
 # 2018-01-01             2.0    29.0    2.0  ...      13.0    1.0     NaN
 # 2018-01-02             NaN    14.0    3.0  ...      14.0    3.0     NaN
 # 2018-01-03             NaN    15.0    1.0  ...      15.0    1.0     1.0
+
+print(45 * "-")
+converted['english_conv_rate'] = (converted.loc['2018-01-11':'2018-01-31'][('converted', 'English')] /
+                                  converted.loc['2018-01-11':'2018-01-31'][('user_id', 'English')])
+
+# print(converted.head(3))
+print(converted.tail())
+#                    user_id                 ... converted         english_conv_rate
+# language_preferred  Arabic English German  ...    German Spanish
+# date_served                                ...
+# 2018-01-27             1.0     4.0    NaN  ...       NaN     1.0               1.0
+# 2018-01-28             NaN     4.0    NaN  ...       NaN     2.0               1.0
+# 2018-01-29             2.0     3.0    NaN  ...       NaN     NaN               1.0
+# 2018-01-30             NaN     4.0    NaN  ...       NaN     2.0               1.0
+# 2018-01-31             1.0     4.0    NaN  ...       NaN     1.0               1.0
+
+converted['expected_spanish_rate'] = converted['english_conv_rate'] * spanish_index
+converted['expected_arabic_rate'] = converted['english_conv_rate'] * arabic_index
+converted['expected_german_rate'] = converted['english_conv_rate'] * german_index
+
+print(converted['expected_spanish_rate'])  # 2018-01-11    1.033358
