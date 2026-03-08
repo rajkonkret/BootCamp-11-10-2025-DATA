@@ -2,7 +2,7 @@ import numpy as np
 
 
 # ReLU - funkcja aktywacji
-
+# jest narażone na martwe neurony
 def relu(x):
     return np.maximum(0, x)
 
