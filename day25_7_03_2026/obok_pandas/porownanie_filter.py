@@ -38,3 +38,5 @@ print("Pandas filter time:", time.time() - start)
 # Polars filter time: 3.5024619102478027
 # Pandas: liczba wierszy z kategorią 'B': 24997100
 # Pandas filter time: 21.906017065048218
+
+# dask
