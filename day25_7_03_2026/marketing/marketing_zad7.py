@@ -106,3 +106,6 @@ actual_subs = sum([
     converted[('converted', 'German')].sum(),
 ])
 print("Actual subs:", actual_subs)  # Actual subs: 26.0
+
+lost = expected_subs - actual_subs
+print("Lost:", lost)  # Lost: 1.4577994281478368
