@@ -13,3 +13,11 @@ print(df.head(3))
 
 email = df[df['marketing_channel'] == 'Email']
 print(email.head().to_string())
+
+# upenienie się, ze grupy zostały odpowiednio zbalnasowane
+alloc = email.groupby(['variant'])['user_id'].nunique()
+print(alloc.head())
+# variant
+# control            270
+# personalization    284
+# Name: user_id, dtype: int64
