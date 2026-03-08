@@ -16,13 +16,15 @@ def conversion_rate(dataframe, columns_name):
 
 def plotting_conv(dataframe):
     for column in dataframe:
+        # plt.figure(figsize=(12, 6))
         plt.plot(dataframe.index, dataframe[column])
 
-        plt.title("Data w zależności od kanału")
-        plt.xlabel("Data")
-        plt.ylabel("Użytkownicy")
+        plt.title("Daily" + str(column) + "conversation rate\n", size=16)
+        plt.xlabel("Conversation rate", size=14)
+        plt.ylabel("Date", size=14)
         plt.xticks(rotation=45)
 
+        plt.tight_layout()
         plt.show()
         plt.clf()  # czyści wykres
 
