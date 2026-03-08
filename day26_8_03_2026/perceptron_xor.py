@@ -78,3 +78,6 @@ print("Przewidywane wyniki:", predictions)
 # [-0.1  0. ]
 # 0.0
 # Przewidywane wyniki: [1 1 0 0]
+
+# https://playground.tensorflow.org/#activation=linear&batchSize=27&dataset=gauss&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=7,5,4,4,4&seed=0.15122&showTestData=false&discretize=false&percTrainData=70&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false
+# http://blueneurons.ch/playground
