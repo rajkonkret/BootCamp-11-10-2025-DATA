@@ -12,6 +12,8 @@ import numpy as np
 # pip uninstall -y tensorflow tf-keras
 # pip install "tensorflow<2.21,>=2.20" "tf-keras==2.20.1"
 # python -c "import platform; print(platform.machine())"
+
+# os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 import tensorflow as tf
 from tensorflow import keras
 from keras import Input
