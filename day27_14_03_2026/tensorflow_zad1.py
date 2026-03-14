@@ -68,11 +68,11 @@ def train_model(y_train, logic_type):
     return model
 
 
-start_time = time.time()
-
-model_and = train_model(y_and, "AND")
-
-print(f"Estimated time: {time.time() - start_time}")
+# start_time = time.time()
+#
+# model_and = train_model(y_and, "AND")
+#
+# print(f"Estimated time: {time.time() - start_time}")
 
 # model_and.save("model_and1.keras")
 # print("Model został zapisany")
@@ -84,7 +84,21 @@ print(f"Estimated time: {time.time() - start_time}")
 # Estimated time: 7.137784957885742
 # Model został zapisany
 
-weights = model_and.get_weights()
-filename = "weights_only.npz"
+# weights = model_and.get_weights()
+# filename = "weights_only.npz"
+# np.savez(filename, *weights)
+# print("Wagi zostały zapisane")
+
+start_time = time.time()
+
+model_xor = train_model(y_xor, "XOR")
+
+print(f"Estimated time: {time.time() - start_time}")
+
+model_xor.save("model_xor1.keras")
+print("Model został zapisany")
+
+weights = model_xor.get_weights()
+filename = "xor_weights_only.npz"
 np.savez(filename, *weights)
 print("Wagi zostały zapisane")
