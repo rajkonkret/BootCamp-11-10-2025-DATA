@@ -40,7 +40,7 @@ hidden_neurons = 4  # 4 neurony
 output_neurons = y.shape[1]  # 3 wyśjcia
 
 learning_rate = 0.5
-epochs = 1000
+epochs = 10000
 
 W_input_hidden = np.random.uniform(-1, 1, (input_neurons, hidden_neurons))
 W_hidden_output = np.random.uniform(-1, 1, (hidden_neurons, output_neurons))
@@ -70,13 +70,16 @@ for epoch in range(epochs):
 print("Trening zakończony")
 
 test_data = np.array([
-    [4, 1, 0, 6, 1],  # kot
-    [4, 1, 0, 30, 1],  # pies
-    [2, 0, 1, 1.8, 0],  # kura
-    [2, 0, 1, 3.8, 0],  # kura
-    [4, 1, 0, 10, 1],  # kot
-    [4, 1, 0, 18, 1],  # Zwierzę 6: Pies
+    [4, 1, 0, 6, 1],  # kot                        Kot
+    [4, 1, 0, 30, 1],  # pies                      Pies
+    [2, 0, 1, 1.8, 0],  # kura                     Kura
+    [2, 0, 1, 3.8, 0],  # kura                     Kura
+    [4, 1, 0, 10, 1],  # kot                       Kot
+    [4, 1, 0, 18, 1],  # Zwierzę 6: Pies           Pies
 ])
+
+# normalizacja danych treningowych
+test_data = test_data / np.max(test_data, axis=0)
 
 # przewidywanie
 hidden_input = np.dot(test_data, W_input_hidden)
@@ -87,6 +90,16 @@ final_output = sigmoid(final_input)
 
 print("Przewidywanie klasy")
 for i, pred in enumerate(final_output):
+    # print(i, pred)
     predicted_class = np.argmax(pred)  # zwraca numer indeksu z najwyższa wartością
     class_names = ['Kot', "Pies", "Kura"]
     print(f"Zwierze {i + 1}: {class_names[predicted_class]}")
+# Epoka 9000, Błąd: 0.0077
+# Trening zakończony
+# Przewidywanie klasy
+# Zwierze 1: Kot
+# Zwierze 2: Pies
+# Zwierze 3: Kura
+# Zwierze 4: Kura
+# Zwierze 5: Kot
+# Zwierze 6: Pies
