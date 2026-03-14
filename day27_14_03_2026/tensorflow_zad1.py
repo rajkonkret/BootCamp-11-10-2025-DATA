@@ -55,7 +55,7 @@ def train_model(y_train, logic_type):
 
     # uruchomienie nauki
     with tf.device("/GPU:0"):
-        model.fit(X, y_train, epochs=100, verbose=1)
+        model.fit(X, y_train, epochs=600, verbose=1)
 
     # testowanie modelu
     predictions = model.predict(X)
@@ -73,3 +73,18 @@ start_time = time.time()
 model_and = train_model(y_and, "AND")
 
 print(f"Estimated time: {time.time() - start_time}")
+
+# model_and.save("model_and1.keras")
+# print("Model został zapisany")
+# Przewidywanie wyników dla operacji AND
+# [0 0] 0 oczekiwanie: 0
+# [0 1] 0 oczekiwanie: 0
+# [1 0] 0 oczekiwanie: 0
+# [1 1] 1 oczekiwanie: 1
+# Estimated time: 7.137784957885742
+# Model został zapisany
+
+weights = model_and.get_weights()
+filename = "weights_only.npz"
+np.savez(filename, *weights)
+print("Wagi zostały zapisane")
