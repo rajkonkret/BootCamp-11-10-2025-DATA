@@ -191,3 +191,4 @@ if __name__ == '__main__':
     )
 
     print(f"PREDICTED DIGIT: {result[0]}")
+# aygumentacja - wprowadzenie zmian w dotępnym zbiorze
