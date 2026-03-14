@@ -49,7 +49,7 @@ model.compile(optimizer="adam", loss="binary_crossentropy", metrics=['accuracy']
 start_time = time.time()
 
 with tf.device("/GPU:0"):
-    model.fit(X, y, epochs=500, verbose=1)
+    model.fit(X, y, epochs=1000, verbose=1)
 
 print(f"Estimated time: {time.time() - start_time}")
 
@@ -60,3 +60,13 @@ predictions = (predictions > 0.5).astype(int)
 print("Przewidywane wartości dla AND, OR, XOR\n")
 for i in range(len(X)):
     print(f"Wejście {X[i]} => AND: {predictions[i][0]} OR: {predictions[i][1]}, XOR: {predictions[i][2]}")
+
+# zapisanie modelu
+model.save("logic_gates.keras")
+
+# zapisanie wag i biasów z modelu numpy
+weights = model.get_weights()
+
+filename = "weights_only_full.npz"
+np.savez(filename, *weights)
+print("Model i wagi zapisane do odpowiednich plików")
