@@ -80,7 +80,7 @@ for epoch in range(epochs):
     print(f"Epoka {epoch + 1}, strata: {loss:.4f}")
 
 # testowanie jedej próbki
-idx = 1
+idx = 7
 x = x_test[idx].reshape(1, -1)
 y_true = y_test[idx]
 
