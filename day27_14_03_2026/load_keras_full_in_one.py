@@ -32,6 +32,7 @@ X = np.array(
     ]
 )
 
+
 def relu(x):
     return np.maximum(0, x)
 
@@ -66,3 +67,10 @@ print("Przewidywane wartości dla AND, OR, XOR\n")
 for i in range(len(X)):
     print(f"Wejście {X[i]} => AND: {predictions[i][0]} OR: {predictions[i][1]}, XOR: {predictions[i][2]}")
 
+# Predictions shape: (4, 3)
+# Przewidywane wartości dla AND, OR, XOR
+#
+# Wejście [0 0] => AND: 0 OR: 0, XOR: 0
+# Wejście [0 1] => AND: 0 OR: 1, XOR: 1
+# Wejście [1 0] => AND: 0 OR: 1, XOR: 1
+# Wejście [1 1] => AND: 1 OR: 1, XOR: 0
