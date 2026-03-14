@@ -55,7 +55,9 @@ model = Sequential(
 )
 
 model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['accuracy'])
-model.fit(X, y, epochs=20, batch_size=32, verbose=2)
+# model.fit(X, y, epochs=20, batch_size=32, verbose=2)
+# model.fit(X, y, epochs=40, batch_size=32, verbose=2)
+model.fit(X, y, epochs=80, batch_size=32, verbose=2)
 
 
 def print_board(board):
