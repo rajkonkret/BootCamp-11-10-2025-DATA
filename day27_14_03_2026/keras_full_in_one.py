@@ -37,18 +37,26 @@ y = np.array(
 # 3 neurony warstwa wyjścia
 model = Sequential(
     [
-        Input(shape=(2, 0)),
+        Input(shape=(2,)),
         Dense(4, activation="relu"),
         Dense(3, activation="sigmoid")
     ]
 )
 
 # kompilacja modelu
-model.compile(optimizer="adam", loss="binary_crossantropy", metrics=['accuracy'])
+model.compile(optimizer="adam", loss="binary_crossentropy", metrics=['accuracy'])
 
 start_time = time.time()
 
 with tf.device("/GPU:0"):
-    model.fit(X, y, epochs=2000, verbose=1)
+    model.fit(X, y, epochs=500, verbose=1)
 
 print(f"Estimated time: {time.time() - start_time}")
+
+# testowanie modelu
+predictions = model.predict(X)
+predictions = (predictions > 0.5).astype(int)
+
+print("Przewidywane wartości dla AND, OR, XOR\n")
+for i in range(len(X)):
+    print(f"Wejście {X[i]} => AND: {predictions[i][0]} OR: {predictions[i][1]}, XOR: {predictions[i][2]}")
