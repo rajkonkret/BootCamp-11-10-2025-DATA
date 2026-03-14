@@ -70,3 +70,10 @@ weights = model.get_weights()
 filename = "weights_only_full.npz"
 np.savez(filename, *weights)
 print("Model i wagi zapisane do odpowiednich plików")
+# Przewidywane wartości dla AND, OR, XOR
+#
+# Wejście [0 0] => AND: 0 OR: 0, XOR: 0
+# Wejście [0 1] => AND: 0 OR: 1, XOR: 1
+# Wejście [1 0] => AND: 0 OR: 1, XOR: 1
+# Wejście [1 1] => AND: 1 OR: 1, XOR: 0
+# Model i wagi zapisane do odpowiednich plików
