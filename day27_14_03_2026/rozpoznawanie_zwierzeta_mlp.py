@@ -28,3 +28,52 @@ y = np.array([
     [0, 1, 0],  # pies
     [0, 0, 1],  # kura
 ])
+
+# stabilizacja danych
+# poprawa szybkości nauki
+# min-max
+X = X / np.max(X, axis=0)
+
+# budowa i ustawienie modelu
+input_neurons = X.shape[1]  # 5 neuronów
+hidden_neurons = 4  # 4 neurony
+output_neurons = y.shape[1]  # 3 wyśjcia
+
+learning_rate = 0.5
+epochs = 1000
+
+W_input_hidden = np.random.uniform(-1, 1, (input_neurons, hidden_neurons))
+W_hidden_output = np.random.uniform(-1, 1, (hidden_neurons, output_neurons))
+
+# trenowanie sieci MLP (siec wielowarstwowa)
+for epoch in range(epochs):
+    hidden_input = np.dot(X, W_input_hidden)
+    hidden_output = sigmoid(hidden_input)
+
+    final_input = np.dot(hidden_output, W_hidden_output)
+    final_output = sigmoid(final_input)
+
+    error = y - final_output
+
+    # backpropagation
+    d_output = error * sigmoid_derivative(final_output)
+    error_hidden = d_output.dot(W_hidden_output.T)
+    d_hidden = error_hidden * sigmoid_derivative(hidden_output)
+
+    W_hidden_output += hidden_output.T.dot(d_output) * learning_rate
+    W_input_hidden += X.T.dot(d_hidden) * learning_rate
+
+    if epoch % 1000 == 0:
+        loss = np.mean(np.abs(error))
+        print(f"Epoka {epoch}, Błąd: {loss:.4f}")
+
+print("Trening zakończony")
+
+test_data = np.array([
+    [4, 1, 0, 6, 1],  # kot
+    [4, 1, 0, 30, 1],  # pies
+    [2, 0, 1, 1.8, 0],  # kura
+    [2, 0, 1, 3.8, 0],  # kura
+    [4, 1, 0, 10, 1],  # kot
+    [4, 1, 0, 18, 1],  # Zwierzę 6: Pies
+])
